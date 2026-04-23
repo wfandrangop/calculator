@@ -42,7 +42,7 @@ function BasicCalculator({ back }) {
                 <button type='button' onClick={reset}> Reset</button>
                 <p> The result is: {result}</p>
             </form>
-            <button onClick={() => back('home')}>Back</button>
+            <button onClick={() => back('home')}>  ← Volver</button>
         </>
     );
 }
