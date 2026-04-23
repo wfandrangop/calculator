@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import BasicCalculator from './components/Basic_calculator';
-import Calculator from './components/Calculator';
 import Home from './components/Home';
+import Calculator from './components/Calculator';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
