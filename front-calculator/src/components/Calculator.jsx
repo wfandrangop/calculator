@@ -65,7 +65,7 @@ function CalculatorV2({ back }) {
             <section>
                 <Boton label="DEL" onClick={deleteDisplay} />
                 <Boton label='/' onClick={() => handleOperator('/')} />
-                <Boton label='x' onClick={() => handleOperator('*')} />
+                <Boton label='x' onClick={() => handleOperator('x')} />
                 <Boton label='RMV' onClick={clearDisplay} />
             </section>
             <section>

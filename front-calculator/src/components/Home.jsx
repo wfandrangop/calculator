@@ -8,6 +8,9 @@ function Home({ goToThePage }) {
             <br />
             <br />
             <button onClick={() => goToThePage('calculator')}>App 2</button>
+            <br />
+            <br />
+            <button onClick={() => goToThePage('api')}>App 3</button>
         </>
     )
 }
