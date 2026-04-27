@@ -1,13 +1,21 @@
-import { useState } from "react";
+import { useState } from "react"
+import { Input, InputGroup, IconButton, Flex } from "@chakra-ui/react"
+import { LuSearch } from "react-icons/lu"
 
 function SearchBar({ getData }) {
     const [name, setName] = useState();
+    const searchCharacter = () => {
+        if (!name) return;
+        getData(name);
+    }
     return (
         <>
-            <section>
-                <input type="text" placeholder="Morty" onChange={(e) => setName(e.target.value)}  />
-                <button onClick={() => getData(name)}>Buscar</button>
-            </section>
+            <Flex>
+                <Input type="text" placeholder="Morty" onChange={(e) => setName(e.target.value)} borderRightRadius="0" />
+                <IconButton aria-label="Search database" onClick={searchCharacter} borderLeftRadius="0">
+                    <LuSearch />
+                </IconButton>
+            </Flex>
         </>
     )
 }

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import SearchBar from './SearchBar';
 import TableCards from './TableCards';
 import CardDetail from './CardDetail';
+import { Box, Button, Flex, Heading, Stack } from "@chakra-ui/react";
 
 const URL = "https://rickandmortyapi.com/api/character/?";
 
@@ -45,23 +46,30 @@ function RickandMorty({ goToThePage }) {
         setSelectedCharacterId(null);
     }
 
-    if (selectedCharacterId) {
-        return (
-            <>
-                <h1>Rick and Morty API</h1>
-                <CardDetail id={selectedCharacterId} back={backToCards} />
-            </>
-        );
-    }
-
     return (
-        <>
-            <h1>Rick and Morty API</h1>
-            <SearchBar getData={getData} />
-            <br />
-            <TableCards data={result} onShowDetails={showCardDetail} />
-            <button onClick={() => goToThePage('home')} >Back</button>
-        </>
-    )
+        <Box maxW="7xl" mx="auto" px={{ base: "2", md: "4" }} py={{ base: "4", md: "6" }}>
+            <Flex
+                justify="space-between"
+                align={{ base: "flex-start", md: "center" }}
+                direction={{ base: "column", md: "row" }}
+                gap="3"
+                mb="6"
+            >
+                <Heading size={{ base: "xl", md: "2xl" }}>Rick and Morty API</Heading>
+                <Button onClick={() => goToThePage('home')} variant="outline" colorPalette="dark" size="sm">
+                    {"<- Back"}
+                </Button>
+            </Flex>
+
+            {selectedCharacterId ? (
+                <CardDetail id={selectedCharacterId} back={backToCards} />
+            ) : (
+                <Stack gap="6">
+                    <SearchBar getData={getData} />
+                    <TableCards data={result} onShowDetails={showCardDetail} />
+                </Stack>
+            )}
+        </Box>
+    );
 }
 export default RickandMorty;
