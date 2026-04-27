@@ -1,7 +1,9 @@
-import { useState } from 'react'
+import { useState, Suspense } from 'react'
 import BasicCalculator from './components/Basic_calculator';
 import Home from './components/Home';
 import Calculator from './components/Calculator';
+import RickandMorty from './components/RickandMorty';
+
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
@@ -14,6 +16,8 @@ function App() {
         return <Calculator back={gotoThePage} />;
       case 'home':
         return <Home goToThePage={gotoThePage} />;
+      case 'api':
+        return <RickandMorty goToThePage={gotoThePage} />;
       default:
         return <Home goToThePage={gotoThePage} />;
     }
